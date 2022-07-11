@@ -1,0 +1,469 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.3;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*MY CODE*/
+* {
+  color: #ef5250;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 60px;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: rgb(15, 15, 15);
+}
+
+/*Buttons*/
+.button-wrapper {
+	padding-top: 18px;
+}
+
+button {
+	width: auto;
+	height: 30px;
+	border: none;
+	color: #ef5250;
+	background-color: transparent;
+	border-radius: 10px;
+	transition: ease-out 0.3s;
+	font-family: 'Space Mono', monospace;
+	font-size: 15px;
+	font-weight: bold;
+	outline: none;
+	border: 2px solid #ef5250;
+	position: relative;
+	display: inline-block;
+	z-index: 1;
+}
+
+button:hover {
+	cursor: pointer;
+	color: #0a0a0a;
+}
+
+button:before {
+	transition: 0.5s all ease;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	right: 50%;
+	bottom: 0;
+	opacity: 0;
+	content: "";
+	background-color: #ef5250;
+	border-radius: 7px;
+}
+
+button:hover:before {
+	transition: 0.5s all ease;
+	left: 0;
+	right: 0;
+	opacity: 1;
+	z-index: -1;
+}
+
+/*Sections*/
+h2 {
+  font-family: 'Space Mono', monospace;
+	font-size: 19px;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+}
+
+/*Comments*/
+h6 {
+	font-family: 'Space Mono', monospace;
+	font-size: 19px;
+	color: #fff;
+	opacity: 25%;
+	font-weight: normal;
+}
+
+/*Work Item Titles*/
+h3 {
+	font-family: 'Space Mono', monospace;
+	font-size: 19px;
+	font-weight: bold;
+	color: #ef5250;
+}
+
+/*Skills Subsection Titles*/
+h4 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+p, ul, li {
+	backround-color: rgb(15, 15, 15);
+  color: #fff;
+	font-size: 15px;
+	font-weight: normal;
+}
+
+a {
+	transition: all 0.25s ease 0s;
+	text-decoration: none;
+	font-size: 19px;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/*Header*/
+header {
+	font-family: 'Space Mono', monospace;
+	background-color: #0a0a0a;
+	width: 100%;
+	z-index: 3;
+	position: fixed;
+}
+
+header ul {
+	list-style: none;
+	overflow: hidden;
+	padding: 0px;
+}
+
+header ul li a {
+	display: block;
+	padding: 18px;
+	text-align: center;
+}
+
+header ul li:hover {
+	background-color: rgb(15, 15, 15);
+	border: .25px solid #ef5250;
+}
+
+header .logo {
+	width: 70px;
+	height: 50px;
+	padding: 7px 0 8px 0;
+	float: left;
+}
+
+/*Header Menu*/
+header .menu {
+	clear: both;
+	max-height: 0px;
+	transition: max-height 0.2s ease-out;
+}
+
+header .menu-icon {
+	padding: 28px 15px;
+	position: relative;
+	float: right;
+	cursor: pointer;
+}
+
+/*Burger Middle Bar*/
+header .menu-icon .nav-icon {
+	background: #ff4846;
+	display: block;
+	height: 8px;
+	width: 50px;
+	float: right;
+	position: relative;
+	transition: background .2s ease-out;
+}
+
+/*Burger Bottom Bar*/
+header .menu-icon .nav-icon:before {
+	background: #ff4846;
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	transition: all .2s ease-out;
+	top: 15px;
+}
+
+/*Burger Top Bar*/
+header .menu-icon .nav-icon:after {
+	background: #ff4846;
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	transition: all .2s ease-out;
+	top: -15.5px;
+}
+
+header .menu-btn {
+	display: none;
+}
+
+header .menu-btn:checked ~ .menu {
+	max-height: 500px;
+}
+
+header .menu-btn:checked ~ .menu-icon .nav-icon {
+	background: transparent;
+}
+
+/*Burger Bottom Bar*/
+header .menu-btn:checked ~ .menu-icon .nav-icon:before {
+	transform: rotate(-45deg);
+	top: 0;
+}
+
+/*Burger Top Bar*/
+header .menu-btn:checked ~ .menu-icon .nav-icon:after {
+	transform: rotate(45deg);
+	top: 0;
+}
+
+.section {
+	padding: 20px 10px 0px 10px;
+	border-bottom: .5px solid #ef5250;
+}
+
+.section h2 {
+	line-height: 2;
+}
+
+.section p, h4, ul {
+	padding-left: 20px;
+	padding-right: 2px;
+}
+
+/*Work items start here*/
+/*Work-items wrapper class*/
+.work-items {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: 100%;
+	grid-auto-rows: auto;
+	padding: 0px 20px;
+}
+
+.work-items p {
+	font-family: 'Montserrat', sans-serif;
+	padding: 12px 0px 2px 0px;
+	font-size: 13px;
+}
+
+.item-container {
+	padding: 7px 0px 7px 7px;
+	background-color: #0a0a0a;
+	border-radius: 15px;
+	border-style: solid;
+	border-color: #000;
+	border-width: .75px;
+}
+
+.item-content {
+	padding: 10px 15px 16px 18px;
+}
+
+.skill-list {
+	color: #ef5250;
+	font-size: 14px;
+}
+
+/*Skills*/
+.skills-wrapper {
+	display: grid;
+	grid-gap: 10px;
+}
+
+.coming-soon {
+	height: 80px;
+	padding-top: 8px;
+}
+
+/*PostScript*/
+.section a {
+	font-size: 14px;
+}
+
+footer {
+	background-color: #0a0a0a;
+}
+
+.copyright {
+	font-size: 14px;
+	font-weigh: bold;
+}
+
+.footer-content {
+	display: flex;
+  align-content: center;
+	justify-content: space-between;
+}
+
+.icons {
+	list-style: none;
+  display: inline-flex;
+}
+
+.icons a i {
+  margin: 0px 10px;
+	font-size: 15px;
+}
+
+/*Landing page content starts here*/
+.landing {
+	position: absolute;
+	top: 0; /*Mess around with this to vertically center at end*/
+	left: 0;
+	right: 0;
+	bottom: 35vh;
+	margin: auto;
+	width: 75%;
+	height: 0; /*This seems to work*/
+}
+
+/*Landing page title*/
+.landing h1 {
+	background-color: rgba(8, 8, 8, 0.75);
+	padding: 8px 10px 5px 10px;
+	text-align: center;
+	font-family: 'Space Mono', monospace;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/*Landing page text*/
+.landing p {
+	background-color: rgba(8, 8, 8, 0.75);
+	padding: 0px 10px 6px 10px;
+	text-align: justify;
+	font-size: 15px;
+}
+
+.portrait {
+	width: 150px;
+	border-radius: 50%;
+	padding-bottom: 10px;
+	display: block;
+  margin: 0 auto;
+}
+
+/*Landing page background*/
+#particles-js {
+  background-color: rgb(15, 15, 15);
+  height: 100vh;
+	border-bottom: 2px solid rgba(8, 8, 8, 0.75);
+}
+
+/*Tablet and greater resolutions*/
+@media (min-width: 1024px) {
+
+	.wrapper {
+		margin: 0px 200px;
+	}
+
+	header li {
+		float: left;
+	}
+
+	header ul li:hover {
+		background-color: transparent;
+		border: none;
+	}
+
+	header .menu {
+		clear: none;
+		float: right;
+		max-height: none;
+	}
+
+	header .menu-icon {
+		display: none;
+	}
+
+	/*Landing page content starts here*/
+	.landing {
+		width: 40%;
+	}
+
+	/*Landing page title*/
+	.landing h1 {
+		text-align: center;
+		font-size: 35px;
+	}
+
+	/*Landing page text*/
+	.landing p {
+		text-align: center;
+	}
+
+	/*Work-items wrapper class*/
+	.work-items {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.icons a i {
+	  margin: 0px 15px;
+		font-size: 20px;
+	}
+
+	.copyright {
+		font-size: 17px;
+	}
+
+	.skills-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+    justify-content: space-between;
+		margin: 0px 150px;
+	}
+
+	.coming-soon {
+		height: 50px;
+		display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+	}
+}

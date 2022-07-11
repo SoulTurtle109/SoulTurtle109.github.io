@@ -1,0 +1,46 @@
+{
+  "particles": {
+    "number": {
+      "value": 225
+    },
+    "color": {
+      "value": "#ef5250"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0.5,
+        "color": "#ef5250"
+      },
+      "image": {
+        "src": "img/github.svg"
+      }
+    },
+    "opacity": {
+      "value": 0.75
+    },
+    "size": {
+      "value": 2.5
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 100,
+      "color": "#ef5250",
+      "width": 0.75,
+      "opacity": 0.75
+    }
+  },
+  "interactivity": {
+    "events": {
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      }
+    },
+    "modes": {
+      "push": {
+        "particles_nb": 1
+      }
+    }
+  }
+}
