@@ -44,7 +44,7 @@ table {
 
 /*MY CODE*/
 * {
-  color: #ef5250;
+  color: #33e312;
 }
 
 html {
@@ -66,7 +66,7 @@ button {
 	width: auto;
 	height: 30px;
 	border: none;
-	color: #ef5250;
+	color: #33e312;
 	background-color: transparent;
 	border-radius: 10px;
 	transition: ease-out 0.3s;
@@ -74,7 +74,7 @@ button {
 	font-size: 15px;
 	font-weight: bold;
 	outline: none;
-	border: 2px solid #ef5250;
+	border: 2px solid #33e312;
 	position: relative;
 	display: inline-block;
 	z-index: 1;
@@ -94,7 +94,7 @@ button:before {
 	bottom: 0;
 	opacity: 0;
 	content: "";
-	background-color: #ef5250;
+	background-color: #33e312;
 	border-radius: 7px;
 }
 
@@ -128,7 +128,7 @@ h3 {
 	font-family: 'Space Mono', monospace;
 	font-size: 19px;
 	font-weight: bold;
-	color: #ef5250;
+	color: #33e312;
 }
 
 /*Skills Subsection Titles*/
@@ -179,7 +179,7 @@ header ul li a {
 
 header ul li:hover {
 	background-color: rgb(15, 15, 15);
-	border: .25px solid #ef5250;
+	border: .25px solid #33e312;
 }
 
 header .logo {
@@ -205,7 +205,7 @@ header .menu-icon {
 
 /*Burger Middle Bar*/
 header .menu-icon .nav-icon {
-	background: #ff4846;
+	background: #19FF09;
 	display: block;
 	height: 8px;
 	width: 50px;
@@ -216,7 +216,7 @@ header .menu-icon .nav-icon {
 
 /*Burger Bottom Bar*/
 header .menu-icon .nav-icon:before {
-	background: #ff4846;
+	background: #19FF09;
 	content: "";
 	display: block;
 	height: 100%;
@@ -228,7 +228,7 @@ header .menu-icon .nav-icon:before {
 
 /*Burger Top Bar*/
 header .menu-icon .nav-icon:after {
-	background: #ff4846;
+	background: #19FF09;
 	content: "";
 	display: block;
 	height: 100%;
@@ -264,7 +264,7 @@ header .menu-btn:checked ~ .menu-icon .nav-icon:after {
 
 .section {
 	padding: 20px 10px 0px 10px;
-	border-bottom: .5px solid #ef5250;
+	border-bottom: .5px solid #33e312;
 }
 
 .section h2 {
@@ -306,7 +306,7 @@ header .menu-btn:checked ~ .menu-icon .nav-icon:after {
 }
 
 .skill-list {
-	color: #ef5250;
+	color: #33e312;
 	font-size: 14px;
 }
 

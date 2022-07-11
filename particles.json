@@ -4,13 +4,13 @@
       "value": 225
     },
     "color": {
-      "value": "#ef5250"
+      "value": "#19FF09"
     },
     "shape": {
       "type": "circle",
       "stroke": {
         "width": 0.5,
-        "color": "#ef5250"
+        "color": "#19FF09"
       },
       "image": {
         "src": "img/github.svg"
@@ -25,7 +25,7 @@
     "line_linked": {
       "enable": true,
       "distance": 100,
-      "color": "#ef5250",
+      "color": "#19FF09",
       "width": 0.75,
       "opacity": 0.75
     }
