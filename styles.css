@@ -39,6 +39,11 @@ li {
   margin-right:2px;
 }
 
+.photo_caption {
+  font-style:italic;
+  opacity: 60%;
+}
+
 /* HEADER */
 #header {
   display: flex;
@@ -57,7 +62,31 @@ li {
   text-shadow: 2px 2px 1px darkgreen;
 }
 
-/* BODY */
+/* FOOTER */
+#footer {
+  display: flex;
+  flex-direction: column;
+}
+
+#copyright_text {
+  display:flex;
+  justify-content:center;
+  margin-top:12px;
+  margin-bottom:20px;
+}
+
+#footer_links {
+  display:flex;
+  justify-content:center;
+  margin-top:10px;
+}
+
+.footer_link a {
+  color: darkgreen;
+  padding: 20px;
+}
+
+/* MAIN PAGE */
 #about {
   display:flex;
   justify-content: center;
@@ -103,31 +132,7 @@ li {
   box-shadow: 3px 3px 1px lightseagreen;
 }
 
-.photo_caption {
-  font-style:italic;
-  opacity: 60%;
-}
+/* EDUCATION PAGE */
 
-/* FOOTER */
-#footer {
-  display: flex;
-  flex-direction: column;
-}
 
-#copyright_text {
-  display:flex;
-  justify-content:center;
-  margin-top:12px;
-  margin-bottom:20px;
-}
-
-#footer_links {
-  display:flex;
-  justify-content:center;
-  margin-top:10px;
-}
-
-.footer_link a {
-  color: darkgreen;
-  padding: 20px;
-}
+/* PROJECTS PAGE */
