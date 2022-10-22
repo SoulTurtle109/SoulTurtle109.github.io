@@ -27,8 +27,19 @@ body {
 }
 
 li {
-  margin-top:10px;
-  margin-bottom:15px;
+  margin-top:8px;
+  margin-bottom:8px;
+}
+
+ul {
+  margin-left:4px;
+  margin-right:4px;
+  list-style-position: inside;
+  list-style-type: square;
+}
+
+ul > ul {
+  margin-left: 40px;
 }
 
 .text_program {
@@ -42,6 +53,23 @@ li {
 .photo_caption {
   font-style:italic;
   opacity: 60%;
+}
+
+.neon_shadow {
+  text-shadow: 2px 2px 1px lightseagreen;
+}
+
+.divider_line {
+  height: 1px;
+  width: 30vw;
+  background-color:lightseagreen;
+  opacity: 70%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.long {
+  width: 50vw;
 }
 
 /* HEADER */
@@ -66,6 +94,7 @@ li {
 #footer {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 
 #copyright_text {
@@ -103,7 +132,6 @@ li {
 }
 
 #about_me h1 {
-  text-shadow: 2px 2px 1px lightseagreen;
   margin-top: 50px;
   margin-bottom:10px;
 }
@@ -133,6 +161,138 @@ li {
 }
 
 /* EDUCATION PAGE */
+#education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10vw;
+  margin-right:10vw;
+  margin-top: 30px;
+  margin-bottom:20px;
+}
 
+#education_title {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom:10px;
+}
+
+#education_title h3 {
+  margin-bottom:2px;
+}
+
+#education_title h2 {
+  margin-bottom:5px;
+}
+
+#education_capstone {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+}
+
+#education_list_containers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#education_projects {
+  display:flex;
+  flex-direction: column;
+  width:25vw;
+  margin-right: 20px;
+  align-items: center;
+  border: 1px dotted seagreen;
+  padding:2px;
+}
+
+#education_classes {
+  display:flex;
+  flex-direction: column;
+  width:25vw;
+  margin-left;20px;
+  align-items: center;
+  border: 1px dotted seagreen;
+  padding:2px;
+}
 
 /* PROJECTS PAGE */
+#projects {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:20px;
+}
+
+#plateau_showcase {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10vw;
+  margin-right:10vw;
+  margin-top:10px;
+}
+
+#plateau_screen {
+  width:960px;
+  height:540px;
+  background-color:blue;
+}
+
+#plateau_circles {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom:20px;
+}
+
+#plateau_description {
+  width:800px;
+  height:300px;
+  background-color: green;
+  margin-bottom: 20px;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: lightseagreen;
+  border-radius: 50%;
+  margin-left: 50px;
+  margin-right:50px;
+  margin-top:2.5px;
+}
+
+.active {
+  height:30px;
+  width:30px;
+  background-color: seagreen;
+  border-radius: 50%;
+  margin-left: 50px;
+  margin-right:50px;
+  margin-top:0px;
+}
+
+/* More Projects */
+.project_grid {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.extra_project_row {
+  display:flex;
+  flex-direction: row;
+}
+
+.project_box {
+  width: 30vw;
+  height:30vw;
+  border: 1px dotted seagreen;
+  margin:10px;
+}
