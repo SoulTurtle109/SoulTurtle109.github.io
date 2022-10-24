@@ -70,17 +70,19 @@
   </div>
 
   <script>
+    let activeButton = 0;
     let text = document.querySelector("#plateau_description_text");
     let gif = document.querySelector("#plateau_gif");
     text.innerHTML = data[0]["desc"];
     gif.src = data[0]["gif"];
 
     function updateGifAndText(n) {
+      activeButton = n;
       text.innerHTML = data[n]["desc"];
       if(data[n]["loaded"])
         gif.src = data[n]["gif"];
       else
-        gif.src = "resources/Yggdroid.jpg"
+        gif.src = data[n]["loading_img"];
     }
 
     let dots = document.querySelectorAll(".dot");
