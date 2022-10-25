@@ -25,8 +25,8 @@
     <!-- Plateau Showcase -->
     <div id="plateau_showcase">
       <div id="plateau_screen">
-        <img id="plateau_gif0" class="plateau_view hidden" src="resources/spring.gif"></img>
-        <img id="plateau_gif0_loading" class="plateau_view" src="resources/spring_loading.png"></img>
+        <img id="plateau_gif0" class="plateau_view" src="resources/spring.gif"></img>
+        <img id="plateau_gif0_loading" class="plateau_view hidden" src="resources/spring_loading.png"></img>
         <img id="plateau_gif1" class="plateau_view hidden" src="resources/move.gif"></img>
         <img id="plateau_gif1_loading" class="plateau_view hidden" src="resources/move_loading.png"></img>
         <img id="plateau_gif2" class="plateau_view hidden" src="resources/tools.gif"></img>
@@ -98,15 +98,14 @@
       //hide all
       gifs_and_pngs.forEach((gop) => gop.classList.add("hidden"));
 
-      let gif = document.querySelector(`#plateau_gif${activeButton}`);
-      console.log(gif);
-      let loading = document.querySelector(`#plateau_gif${activeButton}_loading`);
-      console.log(loading);
-
-      if(data[activeButton]["loaded"])
+      if(data[activeButton]["loaded"]) {
+        let gif = document.querySelector(`#plateau_gif${activeButton}`);
         gif.classList.remove("hidden");
-      else
+      }
+      else {
+        let loading = document.querySelector(`#plateau_gif${activeButton}_loading`);
         loading.classList.remove("hidden");
+      }
     }
 
     let dots = document.querySelectorAll(".dot");
