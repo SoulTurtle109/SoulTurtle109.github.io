@@ -107,7 +107,6 @@
 
       //hide all
       gifs_and_pngs.forEach((gop) => gop.classList.add("hidden"));
-      document.querySelectorAll(".gif").forEach((e) => restartGif(e));
 
       if(data[activeButton]["loaded"]) {
         let gif = document.querySelector(`#plateau_gif${activeButton}`);
@@ -133,6 +132,7 @@
       e.target.classList.add("dot_active");
       activeButton = e.target.id.toString().slice(6);
       updateGifAndText();
+      document.querySelectorAll(".gif").forEach((e) => restartGif(e));
     }));
   </script>
 
