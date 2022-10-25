@@ -71,7 +71,6 @@ for(i in data) {
   preload.onload = function() {
     data[this.index]["loaded"] = true;
     console.log(`loaded ${this.index}`);
-    console.log()
     if(typeof updateGifAndText !== 'undefined') {
       updateGifAndText();
     }
