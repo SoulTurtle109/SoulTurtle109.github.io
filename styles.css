@@ -228,7 +228,7 @@ ul > ul {
   display:flex;
   flex-direction: column;
   align-items: center;
-  margin-top:20px;
+  margin-top:15px;
 }
 
 #plateau_showcase {
@@ -237,9 +237,6 @@ ul > ul {
   align-items: center;
   margin-left: 10vw;
   margin-right:10vw;
-  margin-top:10px;
-
-  margin-bottom: 5px;
 }
 
 #plateau_screen {
@@ -248,23 +245,24 @@ ul > ul {
   background-color:  #5b3138;
   border: 5px solid  #5b3138;
   border-radius: 10px;
+  margin-bottom: 8px;
 }
 
 #plateau_circles {
   display:flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom:20px;
+  margin-top: 8px;
+  margin-bottom:8px;
 }
 
 #plateau_description {
-  max-width: 60vw;
+  max-width: 1273px;
   width:auto;
   height:auto;
   background-color: #ba756a;
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 8px;
   border: 5px solid #5b3138;
   border-radius: 10px;
 }
