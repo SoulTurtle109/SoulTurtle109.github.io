@@ -25,24 +25,24 @@
     <!-- Plateau Showcase -->
     <div id="plateau_showcase">
       <div id="plateau_screen">
-        <img id="plateau_gif1" class="plateau_view" src="resources/spring.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/spring_loading.png"></img>
-        <img id="plateau_gif2" class="plateau_view" src="resources/move.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/move_loading.png"></img>
-        <img id="plateau_gif3" class="plateau_view" src="resources/tools.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/tools_loading.png"></img>
-        <img id="plateau_gif4" class="plateau_view" src="resources/craft.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/craft_loading.png"></img>
-        <img id="plateau_gif5" class="plateau_view" src="resources/explores3.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/explores3_loading.png"></img>
-        <img id="plateau_gif6" class="plateau_view" src="resources/summer.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/summer_loading.png"></img>
-        <img id="plateau_gif7" class="plateau_view" src="resources/explores1.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/explores1_loading.png"></img>
-        <img id="plateau_gif8" class="plateau_view" src="resources/autumn.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/autumn_loading.png"></img>
-        <img id="plateau_gif9" class="plateau_view" src="resources/winter.gif"></img>
-        <img id="plateau_gif1_preload" class="plateau_view" src="resources/winter_loading.png"></img>
+        <img id="plateau_gif0" class="plateau_view hidden" src="resources/spring.gif"></img>
+        <img id="plateau_gif0_loading" class="plateau_view" src="resources/spring_loading.png"></img>
+        <img id="plateau_gif1" class="plateau_view hidden" src="resources/move.gif"></img>
+        <img id="plateau_gif1_loading" class="plateau_view hidden" src="resources/move_loading.png"></img>
+        <img id="plateau_gif2" class="plateau_view hidden" src="resources/tools.gif"></img>
+        <img id="plateau_gif2_loading" class="plateau_view hidden" src="resources/tools_loading.png"></img>
+        <img id="plateau_gif3" class="plateau_view hidden" src="resources/craft.gif"></img>
+        <img id="plateau_gif3_loading" class="plateau_view hidden" src="resources/craft_loading.png"></img>
+        <img id="plateau_gif4" class="plateau_view hidden" src="resources/explores3.gif"></img>
+        <img id="plateau_gif4_loading" class="plateau_view hidden" src="resources/explores3_loading.png"></img>
+        <img id="plateau_gif5" class="plateau_view hidden" src="resources/summer.gif"></img>
+        <img id="plateau_gif5_loading" class="plateau_view hidden" src="resources/summer_loading.png"></img>
+        <img id="plateau_gif6" class="plateau_view hidden" src="resources/explores1.gif"></img>
+        <img id="plateau_gif6_loading" class="plateau_view hidden" src="resources/explores1_loading.png"></img>
+        <img id="plateau_gif7" class="plateau_view hidden" src="resources/autumn.gif"></img>
+        <img id="plateau_gif7_loading" class="plateau_view hidden" src="resources/autumn_loading.png"></img>
+        <img id="plateau_gif8" class="plateau_view hidden" src="resources/winter.gif"></img>
+        <img id="plateau_gif8_loading" class="plateau_view hidden" src="resources/winter_loading.png"></img>
       </div>
 
       <div id="plateau_circles">
@@ -89,17 +89,24 @@
   <script>
     let activeButton = 0;
     let text = document.querySelector("#plateau_description_text");
-    let gif = document.querySelector("#plateau_gif");
+    let gifs_and_pngs = document.querySelectorAll(".plateau_view");
     text.innerHTML = data[0]["desc"];
-    gif.src = data[0]["gif"];
 
-    function updateGifAndText(n) {
-      activeButton = n;
-      text.innerHTML = data[n]["desc"];
-      if(data[n]["loaded"])
-        gif.src = data[n]["gif"];
+    function updateGifAndText() {
+      text.innerHTML = data[activeButton]["desc"];
+
+      //hide all
+      gifs_and_pngs.forEach((gop) => gop.classList.add("hidden"));
+
+      let gif = document.querySelector(`#plateau_gif${activeButton}`);
+      console.log(gif);
+      let loading = document.querySelector(`#plateau_gif${activeButton}_loading`);
+      console.log(loading);
+
+      if(data[activeButton]["loaded"])
+        gif.classList.remove("hidden");
       else
-        gif.src = data[n]["loading_img"];
+        loading.classList.remove("hidden");
     }
 
     let dots = document.querySelectorAll(".dot");
@@ -114,8 +121,8 @@
     dots.forEach((dot) => dot.addEventListener("click", (e) => {
       dots.forEach((dot) => dot.classList.remove("dot_active"));
       e.target.classList.add("dot_active");
-      let buttonNum = e.target.id.toString().slice(6);
-      updateGifAndText(buttonNum)
+      activeButton = e.target.id.toString().slice(6);
+      updateGifAndText();
     }));
   </script>
 

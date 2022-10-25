@@ -72,6 +72,10 @@ ul > ul {
   width: 50vw;
 }
 
+.hidden {
+  display: none;
+}
+
 /* HEADER */
 #header {
   display: flex;
