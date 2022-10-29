@@ -68,8 +68,20 @@ ul > ul {
   margin-top: 20px;
 }
 
+@media (max-width: 1000px) {
+  .divider_line {
+    width: 40vw;
+  }
+}
+
 .long {
   width: 50vw;
+}
+
+@media (max-width: 1000px) {
+  .long {
+    width: 80vw;
+  }
 }
 
 .hidden {
@@ -88,12 +100,6 @@ ul > ul {
   margin-left: 10px;
   margin-right: 10px;
 }
-
-/* @media (max-width: 1000px) {
-  .header_link {
-    padding: 400px;
-  }
-} */
 
 .header_link a {
   color: white;
@@ -139,6 +145,12 @@ ul > ul {
   align-items: center;
   width:40vw;
   margin:10px 20px 10px 20px;
+}
+
+@media (max-width: 1000px) {
+  #about_me {
+    width: 80vw;
+  }
 }
 
 #about_me h1 {
@@ -203,6 +215,12 @@ ul > ul {
   width: 50vw;
 }
 
+@media (max-width: 1000px) {
+  #education_capstone {
+    width: 80vw;
+  }
+}
+
 #education_list_containers {
   display: flex;
   flex-direction: row;
@@ -213,20 +231,30 @@ ul > ul {
   display:flex;
   flex-direction: column;
   width:25vw;
-  margin-right: 20px;
   align-items: center;
   border: 1px dotted seagreen;
   padding:2px;
+}
+
+@media (max-width: 1000px) {
+  #education_projects {
+    width: 40vw;
+  }
 }
 
 #education_classes {
   display:flex;
   flex-direction: column;
   width:25vw;
-  margin-left;20px;
   align-items: center;
   border: 1px dotted seagreen;
   padding:2px;
+}
+
+@media (max-width: 1000px) {
+  #education_classes {
+    width: 40vw;
+  }
 }
 
 /* PROJECTS PAGE */
@@ -316,9 +344,16 @@ ul > ul {
   flex-direction: column;
   justify-content: center;
   margin-top: 10px;
-  margin-left:15vw;
-  margin-right:15vw;
+  margin-left:20vw;
+  margin-right:20vw;
   margin-bottom:10px;
+}
+
+@media (max-width: 1200px) {
+  .project_grid {
+    margin-left:10vw;
+    margin-right:10vw;
+  }
 }
 
 .extra_project_row {
@@ -331,6 +366,10 @@ ul > ul {
   flex-direction: column;
   align-items: center;
   border: 1px dotted seagreen;
-  margin:15px;
   flex: 1 1 0px;
+}
+
+.project_box li {
+  margin-left: 10px;
+  margin-right: 10px;
 }
