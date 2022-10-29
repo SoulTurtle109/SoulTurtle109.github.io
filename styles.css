@@ -86,8 +86,14 @@ ul > ul {
 .header_link {
   padding: 20px;
   margin-left: 10px;
-  margin-right: 10px
+  margin-right: 10px;
 }
+
+/* @media (max-width: 1000px) {
+  .header_link {
+    padding: 400px;
+  }
+} */
 
 .header_link a {
   color: white;
