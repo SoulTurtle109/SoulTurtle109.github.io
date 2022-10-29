@@ -227,7 +227,7 @@ ul > ul {
   justify-content: center;
 }
 
-#education_projects {
+#education_box {
   display:flex;
   flex-direction: column;
   width:25vw;
@@ -237,22 +237,7 @@ ul > ul {
 }
 
 @media (max-width: 1000px) {
-  #education_projects {
-    width: 40vw;
-  }
-}
-
-#education_classes {
-  display:flex;
-  flex-direction: column;
-  width:25vw;
-  align-items: center;
-  border: 1px dotted seagreen;
-  padding:2px;
-}
-
-@media (max-width: 1000px) {
-  #education_classes {
+  #education_box {
     width: 40vw;
   }
 }
@@ -339,7 +324,7 @@ ul > ul {
 }
 
 /* More Projects */
-.project_grid {
+#project_grid {
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -350,7 +335,7 @@ ul > ul {
 }
 
 @media (max-width: 1200px) {
-  .project_grid {
+  #project_grid {
     margin-left:10vw;
     margin-right:10vw;
   }
