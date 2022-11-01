@@ -29,8 +29,8 @@
     <!-- Plateau Showcase -->
     <div id="plateau_showcase">
       <div id="plateau_screen">
-        <img id="plateau_gif0" class="plateau_view hidden gif" src="resources/spring.gif"></img>
-        <img id="plateau_gif0_loading" class="plateau_view" src="resources/spring_loading.png"></img>
+        <img id="plateau_gif0" class="plateau_view gif" src="resources/spring.gif"></img>
+        <img id="plateau_gif0_loading" class="plateau_view hidden" src="resources/spring_loading.png"></img>
         <img id="plateau_gif1" class="plateau_view hidden gif" src="resources/move.gif"></img>
         <img id="plateau_gif1_loading" class="plateau_view hidden" src="resources/move_loading.png"></img>
         <img id="plateau_gif2" class="plateau_view hidden gif" src="resources/tools.gif"></img>
@@ -133,6 +133,9 @@
       updateGifAndText();
       document.querySelectorAll(".gif").forEach((e) => restartGif(e));
     }));
+
+    if(data[0]["loaded"])
+      updateGifAndText();
   </script>
 
 </body>
