@@ -189,6 +189,19 @@ ul > ul {
   box-shadow: 3px 3px 1px lightseagreen;
 }
 
+#portrait_image_container {
+  display: flex;
+  justify-content: center;
+}
+
+.portrait_image {
+  border-radius: 50%;
+  width:40%;
+  height:auto;
+  border: 2px solid lightseagreen;
+  box-sizing: border-box;
+}
+
 /* EDUCATION PAGE */
 #education {
   display: flex;
