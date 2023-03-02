@@ -445,9 +445,9 @@ let scenarios =
     xp_min: 34,
     xp_max: 39,
     challenge: true,
-    note:["Each Coterie member votes randomly out of their possible options. The Red-Gloved Man is not eerily silent. Use 4 Cultist tokens.",
-    "Each Coterie member votes randomly out of their possible options. The Red-Gloved Man is not eerily silent. Use 4 Cultist tokens.",
-    "Each Coterie member votes randomly out of their possible options. The Red-Gloved Man is eerily silent. Use 4 Cultist tokens.",
+    note:["Each Coterie member votes randomly out of their possible options. Use 4 Cultist tokens.",
+    "Each Coterie member votes randomly out of their possible options. Use 4 Cultist tokens.",
+    "Each Coterie member votes randomly out of their possible options. Use 4 Cultist tokens.",
     "Each Coterie member votes randomly out of their possible options. The investigators know the true nature of the Coterie. Use 4 Cultist tokens.",]
   },
   //Standalones
@@ -464,7 +464,8 @@ let scenarios =
   {
     name: "War of the Outer Gods",
     xp_min: 19,
-    xp_max: 25,
+    xp_max: 26,
+    challenge: true
   },
   {
     name: "Carnevale of Horrors",
@@ -488,7 +489,8 @@ let scenarios =
     name: "The Eternal Slumber",
     xp_min: 48,
     xp_max: 55,
-    note:["You may choose to play The Night's Usurper afterwards."]
+    note:["You may choose to play The Night's Usurper afterwards."],
+    challenge: true
   },
   {
     name: "The Night's Usurper",

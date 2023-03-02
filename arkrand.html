@@ -42,6 +42,17 @@
     button.addEventListener("mouseout", (e) => {
       e.target.classList.remove("submit_hover");
     });
+    show_all_checkbox.addEventListener("click", (e) => {
+      //display all options
+      if(show_all_checkbox.checked)
+      {
+        other_scenarios.classList.remove("hidden");
+      }
+      else
+      {
+        other_scenarios.classList.add("hidden");
+      }
+    });
 
     function numberOnly(id) {
         // Get element by id which passed as parameter within HTML element event
@@ -68,6 +79,7 @@
         scenario_name.classList.add("hidden");
         other_scenarios.classList.add("hidden");
         scenario_note.classList.remove("hidden");
+        other_scenarios.innerHTML = "";
         return;
       }
 
@@ -119,24 +131,12 @@
         scenario_note.classList.add("hidden");
       }
 
-      //display all options
-      if(show_all_checkbox.checked)
+      other_scenarios.innerHTML = "<u>Other Scenarios:</u><br>";
+      let others = results.length != 0 ? results : challenges;
+      for(let i = 0; i < others.length; i++)
       {
-        other_scenarios.classList.remove("hidden");
-        other_scenarios.innerHTML = "<u>Other Scenarios:</u><br>";
-        let others = results.length != 0 ? results : challenges;
-        for(let i = 0; i < others.length; i++)
-        {
-          other_scenarios.innerHTML += "<li>" + others[i]["name"] + "<br>"
-        }
+        other_scenarios.innerHTML += "<li>" + others[i]["name"] + "<br>"
       }
-      else
-      {
-        other_scenarios.classList.add("hidden");
-      }
-
-
-
     }
   </script>
 
