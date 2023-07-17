@@ -4,8 +4,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Ben Dunko</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Arkham Randomizer</title>
+  <link rel="stylesheet" href="arkrand.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -14,71 +14,130 @@
 <head>
 
 <body>
-  <script src="preload.js"></script>
-
-  <div id="header">
-    <span class="header_link"><a href="index.html">Home</a></span>
-    <span class="header_link"><a href="education.html">Education</a></span>
-    <span class="header_link"><a href="plateau.html">Projects</a></span>
-    <span class="header_link"><a href="resources\bdunko_resume.pdf" target="_blank" download>Resume</a></span>
-    <span class="header_link"><a href="mailto:bdunko@gmail.com" target="_blank" rel="noopener noreferrer">Contact</a></span>
-    <span class="header_link"><a href="https://github.com/bdunko" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> Github</a></span>
+  <script src="scenarios.js"></script>
+  <input id="xp_input" type="text" oninput="numberOnly(this.id);" maxlength="3" placeholder="XP"/>
+  <button id="submit" onclick="randomize()">Randomize Scenario</button>
+  <div id="option_panel">
+    <p>Show all possible scenarios: <input id="show_all" type="checkbox"/></p>
+  </div>
+  <div id="scenario_box" class="hidden">
+    <p id="scenario_name" class="hidden">Scenario Name</p>
+    <p id="scenario_note" class="hidden">Info</p>
+    <p id="other_scenarios" class="hidden">others</p>
   </div>
 
-  <div id="about">
-    <div id="about_me">
-      <h1 class="neon_shadow">Hi, I'm Ben!</h1>
-
-      <div id="portrait_image_container">
-        <img class="portrait_image" src="resources/christmas_square.png"></img>
-      </div>
-
-      <p class="centered_text">I'm a <span class="text_program">computer programmer (beep boop)</span></p>
-
-      <div class="divider_line"></div>
-
-      <p>I graduated from <strong style="color:#630031">Virginia Tech</strong> in May of 2022 with a B.Sc. in Computer Science. You can check out some details about my coursework and class projects on the <a href="education.html"><strong>Education</strong></a> page.</p>
-      <p>During that time, I was an intern for the <a href="https://www.opennms.com/" target="_blank" rel="noopener noreferrer">OpenNMS Group</a>! You can read a bit about my work for them on my <a href="resources\bdunko_resume.pdf" target="_blank" download><strong>resume</strong></a>. I was also an instructor for <a href="https://www.idtech.com/" target="_blank" rel="noopener noreferrer">iD Tech Camps</a> for two summers.
-      <p>Programming is my passion. I like learning new things, and then using those new things to make other new things.
-      </p>
-      <div class="divider_line"></div>
-      <p class="centered_text">Here are a few of those new things I've made:</p>
-      <ul>
-        <li><a href="plateau.html"><strong>Plateau</strong></a>, a 2-dimensional life simulation game. This is the one I'm most proud of, even if it still isn't finished. I set out to make a video game on my own, teaching myself the basics of game development (using C# and the <a href="https://www.monogame.net/" target="_blank" rel="noopener noreferrer">MonoGame framework</a>), pixel art, and everything else I needed to know as the need arose. I also gained an appreciation for just how much work even small projects can be.
-        <li><a href="https://play.google.com/store/apps/details?id=ben.sheriffscorer" target="_blank" rel="noopener noreferrer"><strong>SheriffScorer</strong></a>, an Android scoresheet app for the Sheriff of Nottingham board game. I taught myself some Android development for this one.<br>10K+ downloads on Google Play, 4.5 &#9733; average review.</li>
-        <li><a href="index.html" class="joke"><strong>This website!</strong></a> I didn't have the chance to learn any web development while working on my undergraduate degree, but the plethora of online resources made it easy to learn the basics.</li>
-        <li>Check out some other projects on the <a href="plateau">Projects</a> page!
-      </ul>
-
-      <div class="divider_line"></div>
-
-      <p>Wanna chat? The best way to contact me is through <a href="mailto:bdunko@gmail.com" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer"><strong>email</strong></a>. Thanks for stopping by!</p>
-      <p>And yes, <span style="color:seagreen;font-weight:bold;border:1px dashed lightseagreen;padding-left:2px;padding-right:2px;">seagreen</span> is my favorite HTML color. How'd you guess?</p>
-    </div>
-
-    <!-- <div id="picture_container">
-      <img id="profile_picture" src="resources/turtle_birthday.jpg" alt="Picture of Ben Dunko">
-      <p class="photo_caption">This was just a placeholder, but I think I'll keep it for now...</p>
-    </div> -->
-  </div>
-
-  <div id="footer">
-    <div id="footer_links">
-      <span class="footer_link"><a href="index.html">Home</a></span>
-      <span class="footer_link"><a href="education.html">Education</a></span>
-      <span class="footer_link"><a href="plateau.html">Projects</a></span>
-      <span class="footer_link"><a href="resources\bdunko_resume.pdf" target="_blank" download>Resume</a></span>
-      <span class="footer_link"><a href="mailto:bdunko@gmail.com" target="_blank" rel="noopener noreferrer">Contact</a></span>
-      <span class="footer_link"><a href="https://github.com/bdunko" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> Github</a></span>
-    </div>
-    <div id="copyright_text">Copyright &copy 2022 Ben Dunko</div>
-  </div>
 
   <script>
-    let website_link = document.querySelector(`.joke`);
-    website_link.addEventListener('click', (event) => {
-      alert("No, like literally, this one.\n\nYou're already looking at it!");
+    let input = document.querySelector("#xp_input");
+    let button = document.querySelector("#submit");
+    let scenario_name = document.querySelector("#scenario_name");
+    let scenario_note = document.querySelector("#scenario_note");
+    let other_scenarios = document.querySelector("#other_scenarios");
+    let show_all_checkbox = document.querySelector("#show_all");
+
+
+    button.addEventListener("mouseover", (e) => {
+      e.target.classList.add("submit_hover");
     });
+    button.addEventListener("mouseout", (e) => {
+      e.target.classList.remove("submit_hover");
+    });
+    show_all_checkbox.addEventListener("click", (e) => {
+      //display all options
+      if(show_all_checkbox.checked)
+      {
+        other_scenarios.classList.remove("hidden");
+      }
+      else
+      {
+        other_scenarios.classList.add("hidden");
+      }
+    });
+
+    function numberOnly(id) {
+        // Get element by id which passed as parameter within HTML element event
+        var element = document.getElementById(id);
+        // This removes any other character but numbers as entered by user
+        element.value = element.value.replace(/[^0-9]/gi, "");
+    }
+
+
+    function randomize()
+    {
+      document.querySelector("#scenario_box").classList.add("visible_box");
+      document.querySelector("#scenario_box").classList.remove("hidden");
+
+
+      let results = [];
+      let challenges = [];
+
+      let xp = parseInt(input.value);
+
+      if(isNaN(xp))
+      {
+        scenario_note.innerHTML = "Enter an amount of XP.";
+        scenario_name.classList.add("hidden");
+        other_scenarios.classList.add("hidden");
+        scenario_note.classList.remove("hidden");
+        other_scenarios.innerHTML = "";
+        return;
+      }
+
+      //find all scenarios within xp range
+      for(let i = 0; i < scenarios.length; i++)
+      {
+        if(xp >= scenarios[i]["xp_min"] && xp <= scenarios[i]["xp_max"])
+        {
+          results.push(scenarios[i]);
+        }
+        if(scenarios[i]["challenge"])
+        {
+          challenges.push(scenarios[i]);
+        }
+      }
+
+      var scenario;
+      //output a scenario to play
+      if(results.length != 0)
+      {
+        let tries = 0;
+        do
+        {
+          scenario = results[Math.floor(Math.random() * results.length)];
+          tries += 1;
+        } while(scenario_name.innerHTML == scenario["name"] && tries < 10)
+      }
+      else //no valid scenarios; spit out a random difficult scenario
+      {
+        let tries = 0;
+        do
+        {
+          scenario = challenges[Math.floor(Math.random() * challenges.length)];
+          tries += 1;
+        } while(scenario_name.innerHTML == scenario["name"] && tries < 10)
+      }
+
+      //display the name of the scenario
+      scenario_name.innerHTML = scenario["name"];
+      scenario_name.classList.remove("hidden");
+      //display one note for this scenario
+      if(Object.hasOwn(scenario, 'note'))
+      {
+        scenario_note.innerHTML = scenario["note"][Math.floor(Math.random() * scenario["note"].length)];
+        scenario_note.classList.remove("hidden");
+      }
+      else
+      {
+        scenario_note.classList.add("hidden");
+      }
+
+      other_scenarios.innerHTML = "<u>Other Scenarios:</u><br>";
+      let others = results.length != 0 ? results : challenges;
+      for(let i = 0; i < others.length; i++)
+      {
+        other_scenarios.innerHTML += "<li>" + others[i]["name"] + "<br>"
+      }
+    }
   </script>
 
 </body>
