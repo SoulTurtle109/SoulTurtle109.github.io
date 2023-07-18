@@ -29,74 +29,74 @@
       </tr>
       <tr>
         <td style="text-align:center; padding:5px">
-          <button id="official_all" style="width:60px; margin-right:5px">All</button>
-          <button id="official_none" style="width:60px">None</button>
+          <button id="official_all" onclick="allofficial()" style="width:60px; margin-right:5px">All</button>
+          <button id="official_none" onclick="noneofficial()" style="width:60px">None</button>
         </td>
         <td style="text-align:center">
-          <button id="standalone_all" style="width:60px; margin-right:5px">All</button>
-          <button id="standalone_none" style="width:60px">None</button>
+          <button id="standalone_all" onclick="allstandalone()" style="width:60px; margin-right:5px">All</button>
+          <button id="standalone_none" onclick="nonestandalone()" style="width:60px">None</button>
         </td>
         <td style="text-align:center">
-          <button id="homebrew_all" style="width:60px; margin-right:5px">All</button>
-          <button id="homebrew_none" style="width:60px">None</button>
+          <button id="homebrew_all" onclick="allhomebrew()" style="width:60px; margin-right:5px">All</button>
+          <button id="homebrew_none" onclick="nonehomebrew()" style="width:60px">None</button>
         </td>
       </tr>
       <tr>
-        <td><input id="notz" type="checkbox" checked/> The Night of the Zealot</td>
-        <td><input id="rougarou" type="checkbox" checked/> Curse of the Rougarou</td>
+        <td><input id="notz" class="official" type="checkbox" checked/> The Night of the Zealot</td>
+        <td><input id="rougarou" class="standalone" type="checkbox" checked/> Curse of the Rougarou</td>
         <td>(Coming Maybe?)</td>
       </tr>
       <tr>
-        <td><input id="dunwich" type="checkbox" checked/> The Dunwich Legacy</td>
-        <td><input id="carnevale" type="checkbox" checked/> Carnevale of Horrors</td>
+        <td><input id="dunwich" class="official" type="checkbox" checked/> The Dunwich Legacy</td>
+        <td><input id="carnevale" class="standalone" type="checkbox" checked/> Carnevale of Horrors</td>
       </tr>
       <tr>
-        <td><input id="carcosa" type="checkbox" checked/> The Path to Carcosa</td>
-        <td><input id="labyrinths" type="checkbox" checked/> Labyrinths of Lunacy</td>
+        <td><input id="carcosa" class="official" type="checkbox" checked/> The Path to Carcosa</td>
+        <td><input id="labyrinths" class="standalone" type="checkbox" checked/> Labyrinths of Lunacy</td>
       </tr>
       <tr>
-        <td><input id="forgotten_age" type="checkbox" checked/> The Forgotten Age</td>
-        <td><input id="guardians" type="checkbox" checked/> Guardians of the Abyss</td>
+        <td><input id="forgotten_age" class="official" type="checkbox" checked/> The Forgotten Age</td>
+        <td><input id="guardians" class="standalone" type="checkbox" checked/> Guardians of the Abyss</td>
       </tr>
       <tr>
-        <td><input id="circle" type="checkbox" checked/> The Circle Undone</td>
-        <td><input id="murder" type="checkbox" checked/> Murder at the Excelsior Hotel</td>
+        <td><input id="circle" class="official" type="checkbox" checked/> The Circle Undone</td>
+        <td><input id="murder" class="standalone" type="checkbox" checked/> Murder at the Excelsior Hotel</td>
       </tr>
       <tr>
-        <td><input id="dream-eaters" type="checkbox" checked/> The Dream-Eaters</td>
-        <td><input id="blob" type="checkbox" checked/> The Blob That Ate Everything</td>
+        <td><input id="dream-eaters" class="official" type="checkbox" checked/> The Dream-Eaters</td>
+        <td><input id="blob" class="standalone" type="checkbox" checked/> The Blob That Ate Everything</td>
       </tr>
       <tr>
-        <td><input id="innsmouth" type="checkbox" checked/> The Innsmouth Conspiracy</td>
-        <td><input id="outer_gods" type="checkbox" checked/> War of the Outer Gods</td>
+        <td><input id="innsmouth" class="official" type="checkbox" checked/> The Innsmouth Conspiracy</td>
+        <td><input id="outer_gods" class="standalone" type="checkbox" checked/> War of the Outer Gods</td>
       </tr>
       <tr>
-        <td><input id="eote" type="checkbox" checked/> The Edge of the Earth</td>
-        <td><input id="machinations" type="checkbox" checked/> Machinations Through Time</td>
+        <td><input id="eote" class="official" type="checkbox" checked/> The Edge of the Earth</td>
+        <td><input id="machinations" class="standalone" type="checkbox" checked/> Machinations Through Time</td>
       </tr>
       <tr>
-        <td><input id="scarlet_keys" type="checkbox" checked/> The Scarlet Keys</td>
-        <td><input id="fortune_and_folly" type="checkbox" checked/> Fortune and Folly</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><input id="read_or_die" type="checkbox" checked/> Read or Die</td>
+        <td><input id="scarlet_keys" class="official" type="checkbox" checked/> The Scarlet Keys</td>
+        <td><input id="fortune_and_folly" class="standalone" type="checkbox" checked/> Fortune and Folly</td>
       </tr>
       <tr>
         <td></td>
-        <td><input id="all_or_nothing" type="checkbox" checked/> All or Nothing</td>
+        <td><input id="read_or_die" class="standalone" type="checkbox" checked/> Read or Die</td>
       </tr>
       <tr>
         <td></td>
-        <td><input id="bad_blood" type="checkbox" checked/> Bad Blood</td>
+        <td><input id="all_or_nothing" class="standalone" type="checkbox" checked/> All or Nothing</td>
       </tr>
       <tr>
         <td></td>
-        <td><input id="by_the_book" type="checkbox" checked/> By the Book</td>
+        <td><input id="bad_blood" class="standalone" type="checkbox" checked/> Bad Blood</td>
       </tr>
       <tr>
         <td></td>
-        <td><input id="red_tide_rising" type="checkbox" checked/> Red Tide Rising</td>
+        <td><input id="by_the_book" class="standalone" type="checkbox" checked/> By the Book</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="red_tide_rising" class="standalone" type="checkbox" checked/> Red Tide Rising</td>
       </tr>
     </table>
   </div>
@@ -117,6 +117,12 @@
     let other_scenarios = document.querySelector("#other_scenarios");
     let show_all_checkbox = document.querySelector("#show_all");
     let checkboxes = document.querySelectorAll('input[type=checkbox]');
+    let official_all = document.querySelectorAll('#official_all');
+    let official_none = document.querySelectorAll('#official_none');
+    let standalone_all = document.querySelectorAll('#standalone_all');
+    let standalone_none = document.querySelectorAll('#standalone_none');
+    let homebrew_all = document.querySelectorAll('#homebrew_all');
+    let homebrew_none = document.querySelectorAll('#homebrew_none');
 
     let highest_xp = -1
     scenarios.forEach((scenario) => {
@@ -130,6 +136,7 @@
     button.addEventListener("mouseout", (e) => {
       e.target.classList.remove("submit_hover");
     });
+
     show_all_checkbox.addEventListener("click", (e) => {
       //display all options
       if(show_all_checkbox.checked)
@@ -141,6 +148,48 @@
         other_scenarios.classList.add("hidden");
       }
     });
+
+    function allofficial() {
+      checkboxes.forEach(box => {
+        if(box.classList.contains("official"))
+          box.checked = true
+      })
+    }
+
+    function noneofficial() {
+      checkboxes.forEach(box => {
+        if(box.classList.contains("official"))
+          box.checked = false
+      })
+    }
+
+    function allstandalone() {
+      checkboxes.forEach(box => {
+        if(box.classList.contains("standalone"))
+          box.checked = true
+      })
+    }
+
+    function nonestandalone() {
+      checkboxes.forEach(box => {
+        if(box.classList.contains("standalone"))
+          box.checked = false
+      })
+    }
+
+    function allhomebrew() {
+      checkboxes.forEach(box => {
+        if(box.classList.contains("homebrew"))
+          box.checked = true
+      })
+    }
+
+    function nonehomebrew() {
+      checkboxes.forEach(box => {
+        if(box.classList.contains("homebrew"))
+          box.checked = false
+      })
+    }
 
     function numberOnly(id) {
         // Get element by id which passed as parameter within HTML element event
@@ -170,8 +219,6 @@
         other_scenarios.innerHTML += "<li>" + others[i]["name"] + "<br>"
       }
     }
-
-    console.log(rand_keys(3, "The Last Blossom"))
 
     function rand_keys(num, exclude) {
       var chosen_keys = []
