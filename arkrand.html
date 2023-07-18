@@ -20,6 +20,88 @@
   <div id="option_panel">
     <p>Show all possible scenarios: <input id="show_all" type="checkbox"/></p>
   </div>
+  <div id="campaigns_table">
+    <table>
+      <tr>
+        <th>Official Cycles</th>
+        <th>Standalones & Parallels</th>
+        <th>Homebrew</th>
+      </tr>
+      <tr>
+        <td style="text-align:center; padding:5px">
+          <button id="official_all" style="width:60px; margin-right:5px">All</button>
+          <button id="official_none" style="width:60px">None</button>
+        </td>
+        <td style="text-align:center">
+          <button id="standalone_all" style="width:60px; margin-right:5px">All</button>
+          <button id="standalone_none" style="width:60px">None</button>
+        </td>
+        <td style="text-align:center">
+          <button id="homebrew_all" style="width:60px; margin-right:5px">All</button>
+          <button id="homebrew_none" style="width:60px">None</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input id="notz" type="checkbox" checked/> The Night of the Zealot</td>
+        <td><input id="rougarou" type="checkbox" checked/> Curse of the Rougarou</td>
+        <td>(Coming Maybe?)</td>
+      </tr>
+      <tr>
+        <td><input id="dunwich" type="checkbox" checked/> The Dunwich Legacy</td>
+        <td><input id="carnevale" type="checkbox" checked/> Carnevale of Horrors</td>
+      </tr>
+      <tr>
+        <td><input id="carcosa" type="checkbox" checked/> The Path to Carcosa</td>
+        <td><input id="labyrinths" type="checkbox" checked/> Labyrinths of Lunacy</td>
+      </tr>
+      <tr>
+        <td><input id="forgotten_age" type="checkbox" checked/> The Forgotten Age</td>
+        <td><input id="guardians" type="checkbox" checked/> Guardians of the Abyss</td>
+      </tr>
+      <tr>
+        <td><input id="circle" type="checkbox" checked/> The Circle Undone</td>
+        <td><input id="murder" type="checkbox" checked/> Murder at the Excelsior Hotel</td>
+      </tr>
+      <tr>
+        <td><input id="dream-eaters" type="checkbox" checked/> The Dream-Eaters</td>
+        <td><input id="blob" type="checkbox" checked/> The Blob That Ate Everything</td>
+      </tr>
+      <tr>
+        <td><input id="innsmouth" type="checkbox" checked/> The Innsmouth Conspiracy</td>
+        <td><input id="outer_gods" type="checkbox" checked/> War of the Outer Gods</td>
+      </tr>
+      <tr>
+        <td><input id="eote" type="checkbox" checked/> The Edge of the Earth</td>
+        <td><input id="machinations" type="checkbox" checked/> Machinations Through Time</td>
+      </tr>
+      <tr>
+        <td><input id="scarlet_keys" type="checkbox" checked/> The Scarlet Keys</td>
+        <td><input id="fortune_and_folly" type="checkbox" checked/> Fortune and Folly</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="read_or_die" type="checkbox" checked/> Read or Die</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="all_or_nothing" type="checkbox" checked/> All or Nothing</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="bad_blood" type="checkbox" checked/> Bad Blood</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="by_the_book" type="checkbox" checked/> By the Book</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="red_tide_rising" type="checkbox" checked/> Red Tide Rising</td>
+      </tr>
+    </table>
+  </div>
+
+</table>
   <div id="scenario_box" class="hidden">
     <p id="scenario_name" class="hidden">Scenario Name</p>
     <p id="scenario_note" class="hidden">Info</p>
@@ -34,7 +116,13 @@
     let scenario_note = document.querySelector("#scenario_note");
     let other_scenarios = document.querySelector("#other_scenarios");
     let show_all_checkbox = document.querySelector("#show_all");
+    let checkboxes = document.querySelectorAll('input[type=checkbox]');
 
+    let highest_xp = -1
+    scenarios.forEach((scenario) => {
+      if(scenario["xp_max"] > highest_xp)
+        highest_xp = scenario["xp_max"]
+    })
 
     button.addEventListener("mouseover", (e) => {
       e.target.classList.add("submit_hover");
@@ -61,12 +149,47 @@
         element.value = element.value.replace(/[^0-9]/gi, "");
     }
 
+    function updateDisplay(name, note, others) {
+      scenario_name.innerHTML = name;
+      scenario_name.classList.remove("hidden");
+
+      //display one note for this scenario
+      if(note != "")
+      {
+        scenario_note.innerHTML = note;
+        scenario_note.classList.remove("hidden");
+      }
+      else
+      {
+        scenario_note.classList.add("hidden");
+      }
+
+      other_scenarios.innerHTML = "<u>Other Scenarios:</u><br>";
+      for(let i = 0; i < others.length; i++)
+      {
+        other_scenarios.innerHTML += "<li>" + others[i]["name"] + "<br>"
+      }
+    }
+
+    console.log(rand_keys(3, "The Last Blossom"))
+
+    function rand_keys(num, exclude) {
+      var chosen_keys = []
+      while(chosen_keys.length < num)
+      {
+        var k = keys[Math.floor(Math.random() * keys.length)]
+        if(chosen_keys.includes[k] || k == exclude)
+          continue
+        chosen_keys.push(k)
+      }
+
+      return "The investigators bear the following keys: " + chosen_keys.join(", ") + "."
+    }
 
     function randomize()
     {
       document.querySelector("#scenario_box").classList.add("visible_box");
       document.querySelector("#scenario_box").classList.remove("hidden");
-
 
       let results = [];
       let challenges = [];
@@ -83,59 +206,59 @@
         return;
       }
 
+      var checked = [].filter.call(checkboxes, function(box) {
+        return box.checked
+      });
+      var legal_sets = []
+      checked.forEach(checkbox => legal_sets.push(checkbox.id))
+
       //find all scenarios within xp range
       for(let i = 0; i < scenarios.length; i++)
       {
-        if(xp >= scenarios[i]["xp_min"] && xp <= scenarios[i]["xp_max"])
-        {
-          results.push(scenarios[i]);
-        }
-        if(scenarios[i]["challenge"])
-        {
-          challenges.push(scenarios[i]);
+        if(legal_sets.includes(scenarios[i]["set"])) {
+          if(xp >= scenarios[i]["xp_min"] && xp <= scenarios[i]["xp_max"])
+          {
+            results.push(scenarios[i]);
+          }
+          if(scenarios[i]["challenge"])
+          {
+            challenges.push(scenarios[i]);
+          }
         }
       }
 
       var scenario;
+
       //output a scenario to play
       if(results.length != 0)
       {
-        let tries = 0;
-        do
-        {
+        do {
           scenario = results[Math.floor(Math.random() * results.length)];
-          tries += 1;
-        } while(scenario_name.innerHTML == scenario["name"] && tries < 10)
+        } while(scenario_name.innerHTML == scenario["name"] && results.length != 1)
+
+        var note = ""
+        if(Object.hasOwn(scenario, 'note'))
+          note += scenario["note"][Math.floor(Math.random() * scenario["note"].length)] + " "
+        if(scenario["set"] == "scarlet_keys" && scenario["name"] != "Congress of the Keys")
+          note += rand_keys(scenario["num_keys"], scenario["key_exclude"])
+        updateDisplay(scenario["name"], note, results)
+      }
+      else if(xp > highest_xp)
+      {
+        do {
+          scenario = challenges[Math.floor(Math.random() * challenges.length)];
+        } while(scenario_name.innerHTML == scenario["name"])
+
+        var note = "Your XP is above " + highest_xp + ", so you are in Challenge Mode. The randomizer will choose random difficult scenarios. "
+        if(Object.hasOwn(scenario, 'note'))
+          note += scenario["note"][Math.floor(Math.random() * scenario["note"].length)] + " "
+        if(scenario["set"] == "scarlet_keys" && scenario["name"] != "Congress of the Keys")
+          note += rand_keys(scenario["num_keys"], scenario["key_exclude"])
+        updateDisplay(scenario["name"], note, challenges)
       }
       else //no valid scenarios; spit out a random difficult scenario
       {
-        let tries = 0;
-        do
-        {
-          scenario = challenges[Math.floor(Math.random() * challenges.length)];
-          tries += 1;
-        } while(scenario_name.innerHTML == scenario["name"] && tries < 10)
-      }
-
-      //display the name of the scenario
-      scenario_name.innerHTML = scenario["name"];
-      scenario_name.classList.remove("hidden");
-      //display one note for this scenario
-      if(Object.hasOwn(scenario, 'note'))
-      {
-        scenario_note.innerHTML = scenario["note"][Math.floor(Math.random() * scenario["note"].length)];
-        scenario_note.classList.remove("hidden");
-      }
-      else
-      {
-        scenario_note.classList.add("hidden");
-      }
-
-      other_scenarios.innerHTML = "<u>Other Scenarios:</u><br>";
-      let others = results.length != 0 ? results : challenges;
-      for(let i = 0; i < others.length; i++)
-      {
-        other_scenarios.innerHTML += "<li>" + others[i]["name"] + "<br>"
+        updateDisplay("No scenarios found.", "", [])
       }
     }
   </script>
